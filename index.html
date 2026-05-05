@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XV Años Noemí Carrillo Mendoza</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- MÚSICA DE FONDO -->
+    <audio id="bgMusic" loop>
+      <source src="assets/music/vals.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button id="musicToggle" class="music-btn">🎵</button>
+
+    <!-- SECCIÓN 1: HERO / PORTADA -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="floral-frame"></div>
+        <h2 class="subtitle">Mis XV Años</h2>
+        <h1 class="name">Noemí Carrillo<br />Mendoza</h1>
+        <div class="date-badge">
+          <span class="day">15</span>
+          <div class="month-year">
+            <span class="month">Septiembre</span>
+            <span class="year">2026</span>
+          </div>
+        </div>
+        <p class="verse">
+          "El corazón de su madre se alegra en ella" — Proverbios 31:28
+        </p>
+        <button class="scroll-btn" onclick="scrollToSection('parents')">
+          <span>Descubrir</span>
+          <div class="arrow"></div>
+        </button>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/Naomi.jpeg" alt="Noemí" />
+        <div class="image-glow"></div>
+      </div>
+      <div class="particles" id="particles"></div>
+    </section>
+
+    <!-- SECCIÓN 2: PADRES Y PADRINOS -->
+    <section id="parents" class="parents-section">
+      <div class="container">
+        <h2 class="section-title" data-scroll>
+          Con la bendición de Dios<br />y mis seres queridos
+        </h2>
+
+        <div class="parents-grid">
+          <div class="parent-card" data-scroll>
+            <div class="card-icon">👨‍👩‍👧</div>
+            <h3>Mis Padres</h3>
+            <p class="names">José Carrillo Barranco</p>
+            <p class="names">Susana Mendoza González</p>
+          </div>
+
+          <div class="parent-card godparents" data-scroll>
+            <div class="card-icon">👑</div>
+            <h3>Mis Padrinos</h3>
+            <p class="names">María Mendoza González</p>
+            <p class="names">Lourdes Mendoza González</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: INVITACIÓN FORMAL -->
+    <section id="invitation" class="invitation-section">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="invitation-card">
+            <div class="card-border">
+              <div class="corner corner-tl">❦</div>
+              <div class="corner corner-tr">❦</div>
+              <div class="corner corner-bl">❦</div>
+              <div class="corner corner-br">❦</div>
+
+              <h2>Queremos compartir contigo<br />este día tan especial</h2>
+              <p class="invite-text">
+                Te invitamos a celebrar mis XV años,<br />
+                un momento mágico que marcará el inicio<br />
+                de una nueva etapa en mi vida.
+              </p>
+              <div class="divider">✦ ✦ ✦</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: CEREMONIA -->
+    <section id="ceremony" class="ceremony-section">
+      <div class="container">
+        <h2 class="section-title" data-scroll>Ceremonia Religiosa</h2>
+
+        <div class="event-card" data-scroll>
+          <div class="time-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <span class="time">5:30 PM</span>
+          </div>
+
+          <div class="location-info">
+            <h3>Iglesia / CASA</h3>
+            <p class="address">
+              Calle Edo. de Tamaulipas #136<br />
+              (Entre Villa de Ayala y Edo. de Tabasco)<br />
+              Col. Providencia, Alcaldía GAM<br />
+              C.P. 07550, Ciudad de México
+            </p>
+          </div>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=19.4856,-99.0953"
+            class="map-btn"
+            target="_blank"
+          >
+            <span>📍 Ver en Google Maps</span>
+          </a>
+
+          <div class="ceremony-image">
+            <img src="assets/images/ceremonia.jpg" alt="Lugar de ceremonia" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: RECEPCIÓN -->
+    <section id="reception" class="reception-section">
+      <div class="container">
+        <h2 class="section-title" data-scroll>Recepción</h2>
+
+        <div class="event-card glass" data-scroll>
+          <div class="time-icon">
+            <span class="time">7:00 PM</span>
+            <span class="label">Ingreso de Invitados</span>
+          </div>
+
+          <div class="location-info">
+            <h3>Salón de Eventos</h3>
+            <a
+              href="https://share.google/J6m5L7FUMkWwhZVxS"
+              class="location-link"
+              target="_blank"
+            >
+              Ver ubicación del evento ↗
+            </a>
+          </div>
+
+          <div class="dress-code">
+            <h4>Código de Vestimenta</h4>
+            <p>Formal / Semi-formal</p>
+            <div class="color-palette">
+              <div
+                class="color-dot"
+                style="background: #d4af37"
+                title="Dorado"
+              ></div>
+              <div
+                class="color-dot"
+                style="background: #f5e6d3"
+                title="Champagne"
+              ></div>
+              <div
+                class="color-dot"
+                style="background: #2c3e50"
+                title="Azul marino"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: CONFIRMACIÓN -->
+    <section id="rsvp" class="rsvp-section">
+      <div class="container">
+        <h2 class="section-title" data-scroll>Confirma tu asistencia</h2>
+
+        <form class="rsvp-form" id="rsvpForm">
+          <div class="form-group">
+            <input type="text" id="nombre" required placeholder=" " />
+            <label for="nombre">Tu nombre completo</label>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" id="telefono" required placeholder=" " />
+            <label for="telefono">Teléfono</label>
+          </div>
+
+          <div class="form-group">
+            <select id="asistentes" required>
+              <option value="" disabled selected></option>
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5+">5 o más</option>
+            </select>
+            <label for="asistentes">Número de asistentes</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Confirmar Asistencia</span>
+            <div class="btn-shine"></div>
+          </button>
+        </form>
+
+        <div class="contact-whatsapp">
+          <p>¿Dudas? Escríbenos:</p>
+          <a
+            href="https://wa.me/521XXXXXXXXXX"
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7: GALERÍA / MOMENTOS -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <h2 class="section-title" data-scroll>Momentos Inolvidables</h2>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Las imágenes se cargan dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 8: FOOTER / AGRADECIMIENTO -->
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>¡Te esperamos!</h2>
+        <p class="countdown" id="countdown">Cargando...</p>
+        <div class="social-share">
+          <button onclick="shareInvitation()">Compartir Invitación</button>
+        </div>
+        <p class="copyright">Con amor, Familia Carrillo Mendoza 💕</p>
+      </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+  </body>
+</html>
