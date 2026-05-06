@@ -190,7 +190,7 @@ function initParticles() {
 // ===== 5. CUENTA REGRESIVA =====
 function initCountdown() {
   // Fecha del evento (ajustar según la fecha real)
-  const eventDate = new Date("2026-09-15T17:30:00");
+  const eventDate = new Date("2026-06-19T17:30:00");
 
   function updateCountdown() {
     const now = new Date();
@@ -249,7 +249,7 @@ function initForm() {
     const asistentes = document.getElementById("asistentes").value;
 
     // Crear el mensaje para WhatsApp
-    const mensaje = `Hola, soy *${nombre}* y confirmo mi asistencia a los XV años de Noemí. Somos *${asistentes}* persona(s). Mi teléfono es: ${telefono}. ¡Nos vemos el 15 de septiembre! 🎉`;
+    const mensaje = `Hola, soy *${nombre}* y confirmo mi asistencia a los XV años de Noemí. Somos *${asistentes}* persona(s). Mi teléfono es: ${telefono}. ¡Nos vemos el 19 de junio! 🎉`;
 
     // Tu número de WhatsApp (el que ya tienes)
     const numeroWhatsApp = "5215541009163";
