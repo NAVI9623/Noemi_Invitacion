@@ -880,3 +880,64 @@ section {
 /* ============================================================
    ADICIONES MÍNIMAS: Fondo fijo + Glassmorphism suave
    ============================================================ */
+/* ============================================================
+   AJUSTES RESPONSIVE PARA EL SOBRE EN MÓVIL
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* El sobre más pequeño en móvil */
+  .envelope {
+    width: 280px;
+    height: 190px;
+  }
+
+  /* La carta más pequeña */
+  .invitation-card {
+    width: 92%;
+    height: 88%;
+    padding: 0.8rem;
+  }
+
+  .card-border {
+    padding: 1rem;
+  }
+
+  /* Texto más pequeño dentro de la carta */
+  .card-border h2 {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .invite-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 0.8rem 0;
+  }
+
+  .divider {
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+  }
+
+  /* Las esquinas decorativas más pequeñas */
+  .corner {
+    font-size: 1rem;
+  }
+
+  .corner-tl {
+    top: 5px;
+    left: 5px;
+  }
+  .corner-tr {
+    top: 5px;
+    right: 5px;
+  }
+  .corner-bl {
+    bottom: 5px;
+    left: 5px;
+  }
+  .corner-br {
+    bottom: 5px;
+    right: 5px;
+  }
+}
