@@ -235,40 +235,44 @@ function initMusic() {
 }
 
 // ===== 7. FORMULARIO RSVP =====
+// ===== 8. FORMULARIO RSVP → WhatsApp =====
 function initForm() {
   const form = document.getElementById("rsvpForm");
+  if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Animación de envío
+    // Obtener los datos del formulario
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const asistentes = document.getElementById("asistentes").value;
+
+    // Crear el mensaje para WhatsApp
+    const mensaje = `Hola, soy *${nombre}* y confirmo mi asistencia a los XV años de Noemí. Somos *${asistentes}* persona(s). Mi teléfono es: ${telefono}. ¡Nos vemos el 15 de septiembre! 🎉`;
+
+    // Tu número de WhatsApp (el que ya tienes)
+    const numeroWhatsApp = "5215541009163";
+
+    // Crear el enlace de WhatsApp
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    // Animación del botón
     const btn = form.querySelector(".submit-btn");
-    const originalText = btn.querySelector("span").textContent;
+    btn.querySelector("span").textContent = "¡Abriendo WhatsApp...";
 
-    gsap.to(btn, {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-    });
-
-    btn.querySelector("span").textContent = "¡Enviando...";
-
-    // Aquí iría la lógica de envío (EmailJS, Formspree, etc.)
+    // Pequeña pausa para que se vea la animación, luego abrir WhatsApp
     setTimeout(() => {
-      btn.querySelector("span").textContent = "¡Confirmado! ✓";
-      btn.style.background = "#25D366";
+      window.open(urlWhatsApp, "_blank");
 
-      // Reset después de 3 segundos
+      // Resetear el formulario después de un momento
       setTimeout(() => {
-        btn.querySelector("span").textContent = originalText;
-        btn.style.background = "";
+        btn.querySelector("span").textContent = "Confirmar Asistencia";
         form.reset();
-      }, 3000);
-    }, 1500);
+      }, 2000);
+    }, 800);
   });
 }
-
 // ===== 8. GALERÍA DINÁMICA =====
 function initGallery() {
   const grid = document.getElementById("galleryGrid");

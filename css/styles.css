@@ -25,9 +25,18 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--blanco);
   color: var(--negro-suave);
   overflow-x: hidden;
+  background-image:
+    url("../assets/images/Noemi2.jpeg"), url("../assets/images/Noemi3.jpeg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: overlay;
+  /* ANTES: background-color: rgba(255, 255, 255, 0.92); */
+  /* AHORA: Más transparente para ver las fotos */
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ===== TIPOGRAFÍA ===== */
@@ -95,12 +104,11 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    var(--rosa-palido) 0%,
-    var(--champagne) 50%,
-    var(--blanco) 100%
-  );
+  /* ANTES: background: linear-gradient(135deg, var(--rosa-palido) 0%, var(--champagne) 50%, var(--blanco) 100%); */
+  /* AHORA: Transparente para ver el fondo */
+  background: rgba(248, 232, 232, 0.4) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   position: relative;
   overflow: hidden;
   padding: 2rem;
@@ -110,6 +118,12 @@ h3 {
   text-align: center;
   z-index: 2;
   max-width: 600px;
+  /* Fondo blanco semitransparente para que el texto se lea bien */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
@@ -281,7 +295,11 @@ section {
 
 /* ===== PADRES Y PADRINOS ===== */
 .parents-section {
-  background: var(--blanco);
+  /* ANTES: background: var(--blanco); */
+  /* AHORA: Glassmorphism */
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .parents-grid {
@@ -328,7 +346,11 @@ section {
 
 /* ===== INVITACIÓN (SOBRE) ===== */
 .invitation-section {
-  background: linear-gradient(to bottom, var(--blanco), var(--rosa-palido));
+  /* ANTES: background: linear-gradient(to bottom, var(--blanco), var(--rosa-palido)); */
+  /* AHORA: Glassmorphism */
+  background: rgba(248, 232, 232, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -443,11 +465,19 @@ section {
 
 /* ===== CEREMONIA Y RECEPCIÓN ===== */
 .ceremony-section {
-  background: linear-gradient(to bottom, var(--rosa-palido), var(--blanco));
+  /* ANTES: background: linear-gradient(to bottom, var(--rosa-palido), var(--blanco)); */
+  /* AHORA: Glassmorphism */
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .reception-section {
-  background: var(--blanco);
+  /* ANTES: background: var(--blanco); */
+  /* AHORA: Glassmorphism */
+  background: rgba(245, 230, 211, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .event-card {
@@ -578,7 +608,11 @@ section {
 
 /* ===== RSVP FORM ===== */
 .rsvp-section {
-  background: linear-gradient(135deg, var(--rosa-palido), var(--champagne));
+  /* ANTES: background: linear-gradient(135deg, var(--rosa-palido), var(--champagne)); */
+  /* AHORA: Glassmorphism */
+  background: rgba(248, 232, 232, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .rsvp-form {
@@ -842,3 +876,7 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--negro-suave);
 }
+
+/* ============================================================
+   ADICIONES MÍNIMAS: Fondo fijo + Glassmorphism suave
+   ============================================================ */
