@@ -117,15 +117,15 @@ h3 {
 .hero-content {
   text-align: center;
   z-index: 2;
-  max-width: 600px;
-  /* Fondo blanco semitransparente para que el texto se lea bien */
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(5px);
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  order: 1; /* Texto a la izquierda */
+  flex-shrink: 0;
 }
-
 .subtitle {
   font-size: 1.5rem;
   color: var(--rosa-oscuro);
@@ -185,23 +185,38 @@ h3 {
 }
 
 /* Imagen de Noemí - CENTRADA CORRECTAMENTE */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(248, 232, 232, 0.4) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  gap: 2rem; /* Espacio entre imagen y texto */
+}
+
+/* Imagen de Noemí — AL LADO del texto, NO dentro */
 .hero-image {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  max-width: 700px;
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
+  position: relative; /* Flujo normal del documento */
+  width: 80%; /* Ocupa buena parte del ancho */
+  max-width: 400px;
+  margin: 1.5rem auto; /* Centrada horizontal, espacio arriba/abajo */
+  opacity: 1;
+  z-index: 1;
+  display: block;
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
-  border-radius: 20px; /* Más simple, sin la forma rara */
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  display: block;
 }
 
 .image-glow {
@@ -359,9 +374,9 @@ section {
 }
 
 .envelope {
-  width: 90%;
+  width: 79%;
   max-width: 650px;
-  height: 520px; /* MÁS ALTO para el texto largo */
+  height: 420px; /* MÁS ALTO para el texto largo */
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -400,8 +415,8 @@ section {
 
 /* CARTA — MÁS ALTA Y CON SCROLL SI ES NECESARIO */
 .invitation-card {
-  width: 92%;
-  height: 94%;
+  width: 90%;
+  height: 90%;
   background: var(--blanco);
   border-radius: 10px;
   padding: 1rem;
@@ -464,7 +479,7 @@ section {
 
 /* TEXTO MÁS PEQUEÑO PARA QUE QUEPA */
 .card-border h2 {
-  font-size: 1rem; /* MUY PEQUEÑO */
+  font-size: 1.15rem; /* MUY PEQUEÑO */
   line-height: 1.4;
   color: var(--negro-suave);
   margin-bottom: 0.5rem;
@@ -472,7 +487,7 @@ section {
 }
 
 .invite-text {
-  font-size: 0.85rem; /* MUY PEQUEÑO */
+  font-size: 0.95rem; /* MUY PEQUEÑO */
   line-height: 1.5;
   color: var(--negro-suave);
   margin: 0.4rem 0;
@@ -480,7 +495,7 @@ section {
 
 .divider {
   color: var(--dorado);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   letter-spacing: 0.6rem;
   margin: 0.3rem 0;
 }
@@ -847,21 +862,18 @@ section {
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    text-align: center;
+    gap: 1.5rem;
   }
 
   .hero-image {
-    width: 85%;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-    opacity: 0.25 !important;
+    width: 70%;
+    max-width: 300px;
+    order: 1; /* Imagen arriba en móvil */
   }
 
   .hero-content {
-    position: relative;
-    z-index: 2;
     width: 95%;
+    order: 2; /* Texto abajo en móvil */
     padding: 2rem 1.5rem;
   }
 
@@ -882,7 +894,7 @@ section {
 /* MÓVIL PEQUEÑO — SOBRE */
 @media (max-width: 480px) {
   .envelope {
-    height: 480px; /* MUY ALTO en móvil */
+    height: 400px; /* MUY ALTO en móvil */
     max-width: 340px;
   }
 
@@ -896,11 +908,11 @@ section {
   }
 
   .card-border h2 {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .invite-text {
-    font-size: 0.78rem; /* MUY PEQUEÑO */
+    font-size: 0.9rem; /* MUY PEQUEÑO */
     line-height: 1.4;
   }
 
