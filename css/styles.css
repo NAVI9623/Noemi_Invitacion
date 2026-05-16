@@ -186,18 +186,15 @@ h3 {
 
 /* Imagen de Noemí - CENTRADA CORRECTAMENTE */
 .hero-image {
-  position: fixed; /* o absolute si prefieres */
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto; /* Centrado automático */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 65%;
   max-width: 700px;
-  height: fit-content; /* Ajusta a la imagen */
   opacity: 0;
   z-index: 0;
-  pointer-events: none; /* No interfiere con clicks */
+  pointer-events: none;
 }
 
 .hero-image img {
@@ -267,34 +264,6 @@ h3 {
   60% {
     transform: translateY(-5px) rotate(45deg);
   }
-}
-
-/* Imagen de Noemí */
-.hero-image {
-  position: absolute;
-  right: -10%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50%;
-  max-width: 600px;
-  opacity: 0;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-}
-
-.image-glow {
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, var(--dorado-claro) 0%, transparent 70%);
-  opacity: 0.5;
-  z-index: -1;
-  filter: blur(40px);
 }
 
 /* Partículas doradas */
@@ -378,8 +347,6 @@ section {
 
 /* ===== INVITACIÓN (SOBRE) ===== */
 .invitation-section {
-  /* ANTES: background: linear-gradient(to bottom, var(--blanco), var(--rosa-palido)); */
-  /* AHORA: Glassmorphism */
   background: rgba(248, 232, 232, 0.5) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -388,12 +355,13 @@ section {
   align-items: center;
   justify-content: center;
   perspective: 1000px;
+  padding: 4rem 1rem;
 }
 
 .envelope {
   width: 90%;
-  max-width: 600px;
-  height: 400px;
+  max-width: 650px;
+  height: 520px; /* MÁS ALTO para el texto largo */
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -430,16 +398,18 @@ section {
   justify-content: center;
 }
 
+/* CARTA — MÁS ALTA Y CON SCROLL SI ES NECESARIO */
 .invitation-card {
-  width: 90%;
-  height: 85%;
+  width: 92%;
+  height: 94%;
   background: var(--blanco);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.6s 0.3s;
+  overflow: hidden;
 }
 
 .envelope.open .invitation-card {
@@ -450,49 +420,69 @@ section {
 .card-border {
   border: 1px solid var(--dorado);
   height: 100%;
-  padding: 2rem;
+  padding: 1.2rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Arriba para que el texto fluya */
   text-align: center;
+  overflow-y: auto; /* Scroll si el texto es muy largo */
 }
 
+/* Ocultar scrollbar pero que funcione */
+.card-border::-webkit-scrollbar {
+  width: 3px;
+}
+.card-border::-webkit-scrollbar-thumb {
+  background: var(--dorado);
+  border-radius: 3px;
+}
+
+/* ESQUINAS PEQUEÑAS */
 .corner {
   position: absolute;
   color: var(--dorado);
-  font-size: 1.5rem;
+  font-size: 0.9rem;
 }
-
 .corner-tl {
-  top: 10px;
-  left: 10px;
+  top: 6px;
+  left: 6px;
 }
 .corner-tr {
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 6px;
 }
 .corner-bl {
-  bottom: 10px;
-  left: 10px;
+  bottom: 6px;
+  left: 6px;
 }
 .corner-br {
-  bottom: 10px;
-  right: 10px;
+  bottom: 6px;
+  right: 6px;
+}
+
+/* TEXTO MÁS PEQUEÑO PARA QUE QUEPA */
+.card-border h2 {
+  font-size: 1rem; /* MUY PEQUEÑO */
+  line-height: 1.4;
+  color: var(--negro-suave);
+  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 .invite-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 0.85rem; /* MUY PEQUEÑO */
+  line-height: 1.5;
   color: var(--negro-suave);
-  margin: 1.5rem 0;
+  margin: 0.4rem 0;
 }
 
 .divider {
   color: var(--dorado);
-  font-size: 1.2rem;
-  letter-spacing: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.6rem;
+  margin: 0.3rem 0;
 }
 
 /* ===== CEREMONIA Y RECEPCIÓN ===== */
@@ -853,7 +843,7 @@ section {
   font-size: 0.9rem;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE ÚNICO ===== */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -861,16 +851,18 @@ section {
   }
 
   .hero-image {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 80%;
-    margin-top: 2rem;
+    width: 85%;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    opacity: 0.25 !important;
   }
 
-  .hero-image img {
-    border-radius: 20px;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 95%;
+    padding: 2rem 1.5rem;
   }
 
   .date-badge {
@@ -882,12 +874,43 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .envelope {
-    height: 300px;
-  }
-
   section {
     padding: 4rem 1rem;
+  }
+}
+
+/* MÓVIL PEQUEÑO — SOBRE */
+@media (max-width: 480px) {
+  .envelope {
+    height: 480px; /* MUY ALTO en móvil */
+    max-width: 340px;
+  }
+
+  .invitation-card {
+    padding: 0.8rem;
+    height: 92%;
+  }
+
+  .card-border {
+    padding: 0.8rem;
+  }
+
+  .card-border h2 {
+    font-size: 0.9rem;
+  }
+
+  .invite-text {
+    font-size: 0.78rem; /* MUY PEQUEÑO */
+    line-height: 1.4;
+  }
+
+  .corner {
+    font-size: 0.7rem;
+  }
+
+  .divider {
+    font-size: 0.8rem;
+    letter-spacing: 0.4rem;
   }
 }
 
@@ -907,69 +930,4 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--negro-suave);
-}
-
-/* ============================================================
-   ADICIONES MÍNIMAS: Fondo fijo + Glassmorphism suave
-   ============================================================ */
-/* ============================================================
-   AJUSTES RESPONSIVE PARA EL SOBRE EN MÓVIL
-   ============================================================ */
-
-@media (max-width: 480px) {
-  /* El sobre más pequeño en móvil */
-  .envelope {
-    width: 280px;
-    height: 190px;
-  }
-
-  /* La carta más pequeña */
-  .invitation-card {
-    width: 100%;
-    height: 88%;
-    padding: 0.8rem;
-  }
-
-  .card-border {
-    padding: 1rem;
-  }
-
-  /* Texto más pequeño dentro de la carta */
-  .card-border h2 {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-
-  .invite-text {
-    font-size: 0.75rem;
-    line-height: 1.5;
-    margin: 0.8rem 0;
-  }
-
-  .divider {
-    font-size: 1rem;
-    letter-spacing: 0.5rem;
-  }
-
-  /* Las esquinas decorativas más pequeñas */
-  .corner {
-    font-size: 1rem;
-  }
-
-  .corner-tl {
-    top: 5px;
-    left: 5px;
-  }
-  .corner-tr {
-    top: 5px;
-    right: 5px;
-  }
-  .corner-bl {
-    bottom: 5px;
-    left: 5px;
-  }
-  .corner-br {
-    bottom: 5px;
-    right: 5px;
-  }
 }
